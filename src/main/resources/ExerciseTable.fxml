@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-<GridPane alignment="CENTER" hgap="10.0" vgap="10.0"
+<VBox alignment="CENTER"
           xmlns:fx="http://javafx.com/fxml"
-          fx:controller="controllers.ExercisesTableController">
+          fx:controller="controllers.ExerciseTableController">
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
-    <Label style="-fx-font: NORMAL 20 Tahoma;" text="Exercise Table"
-           GridPane.columnIndex="0" GridPane.rowIndex="0">
-    </Label>
     <TableView fx:id="exerciseSetTableView" GridPane.columnIndex="0"
                GridPane.rowIndex="1">
+        <columnResizePolicy>
+            <TableView fx:constant = "CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
         <columns>
             <TableColumn text="Weight">
                 <cellValueFactory>
@@ -40,4 +38,5 @@
                    prefWidth="90"/>
         <Button text="Add" onAction="#addSet"/>
     </HBox>
-</GridPane>
+</VBox>
+

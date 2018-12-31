@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import models.ExerciseSet;
 
 
-public class ExercisesTableController {
+public class ExerciseTableController {
     @FXML
     TableView<ExerciseSet> exerciseSetTableView;
     @FXML
