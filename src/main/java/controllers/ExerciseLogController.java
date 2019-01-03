@@ -1,12 +1,15 @@
 package controllers;
 
+import factories.ExerciseTableFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import models.Exercise;
+
+import java.util.List;
 
 
 public class ExerciseLogController {
@@ -15,13 +18,18 @@ public class ExerciseLogController {
     @FXML
     VBox exerciseVBox;
 
+    List<Exercise> exercises;
+
+
+
     @FXML
     protected void addExercise(ActionEvent ae) throws Exception {
 
-        String exercise = exerciseTextField.getText();
+        String exerciseName = exerciseTextField.getText();
+        Pane exerciseView = ExerciseTableFactory.createExerciseTable(exerciseName);
 
-        Label exerciseLabel = new Label(exercise);
-        VBox exerciseView = FXMLLoader.load(getClass().getClassLoader().getResource("ExerciseTable.fxml"));
+        //TODO: add this to the exercise table component
+        Label exerciseLabel = new Label(exerciseName);
         exerciseVBox.getChildren().addAll(exerciseLabel, exerciseView);
 
         exerciseTextField.setText("");
